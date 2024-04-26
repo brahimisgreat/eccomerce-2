@@ -6,6 +6,8 @@ import { Store } from "./pages/Store";
 import { About } from "./pages/About";
 import { Navbar } from "./components/Navbar";
 import { ShoppingCartProvider } from "./Context/ShoppingCartcontext";
+import { useState } from "react";
+
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
         <Container>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/store" element={<Store />} />
+            <Route path="/store" element={<Store  />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </Container>
