@@ -1,6 +1,7 @@
 import { Offcanvas,Stack } from "react-bootstrap";
 import { useShoppingCart } from "../Context/ShoppingCartcontext";
 import { CartItem } from "./CartItem";
+import { list } from "../Data/Items";
 
 type ShoppingCartProps = {
     isOpen: boolean
@@ -19,6 +20,12 @@ export const ShoppingCart = ({isOpen}: ShoppingCartProps) => {
             {cartItems.map(item => (
                 <CartItem key={item.id} {...item}/>
             ))}
+            <div>
+              Total {cartItems.reduce((total,cartItem)=>{
+                const item = list.find(i => i.id === cartItem.id)
+                return total + (item?.price ||  0)* cartItem.quantity
+              },0)}
+            </div>
             </Stack>
         </Offcanvas.Body>
             
